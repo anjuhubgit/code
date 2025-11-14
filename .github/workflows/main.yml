@@ -5,7 +5,7 @@ on:
     branches:
        -main
 env:
-  CONTAINER_NAME: 'nodejs'
+  CONTAINER_NAME: 'nodejss'
   IMAGE_NAME: 'nodejsimage'
   
 
