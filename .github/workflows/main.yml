@@ -28,7 +28,6 @@ else
           fi
 - name : Remove old Docker image
     run: |
-	IMAGE_NAME="imgname" 
 	if docker images -q "$IMAGE_NAME:latest" | grep -q .; then
 	echo "Removing old Docker image: $IMAGE_NAME:latest"
 	docker rmi "$IMAGE_NAME:latest" || true # '|| true' prevents failure if image is in use
