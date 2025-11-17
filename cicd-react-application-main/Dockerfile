@@ -1,7 +1,12 @@
-FROM node:14
-RUN mkdir app
+FROM node:14 AS nodework
 WORKDIR /app
-COPY ./ .
+COPY package.json .
 RUN npm install
-EXPOSE 3000
-CMD ["npm", "start"]
+COPY . .
+RUN npm run build
+
+FROM nginx
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=nodework /app/build .
+ENTRYPOINT ["nginx","-g","daemon off;"]
