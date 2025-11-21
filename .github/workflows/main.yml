@@ -4,11 +4,7 @@ on:
   push:
     branches:
        -main
-env:
-  CONTAINER_NAME: 'nodejss'
-  IMAGE_NAME: 'nodejsimage'
   
-
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
@@ -17,29 +13,13 @@ steps:
   - name: Checkout code
     uses: actions/checkout@v4
 
-  - name: stop and remove old container(if running)
-     run: |
-	  if docker ps -a --format '{{.Names}}' | grep -q "$CONTAINER_NAME"; then
-	  echo "Stopping and removing existing container: $CONTAINER_NAME"
-	  docker stop "$CONTAINER_NAME"
-	  docker rm "$CONTAINER_NAME"
-else
-            echo "No existing container found with name: $CONTAINER_NAME"
-          fi
-- name : Remove old Docker image
-    run: |
-	if docker images -q "$IMAGE_NAME:latest" | grep -q .; then
-	echo "Removing old Docker image: $IMAGE_NAME:latest"
-	docker rmi "$IMAGE_NAME:latest" || true # '|| true' prevents failure if image is in use
-    else
-	echo "No old image found with tag: $IMAGE_NAME:latest"
-          fi
- 
- - name: Build Docker Image
-    run: docker build -t node-docker-app .
+  - name: CI
+     run:|
+      docker build -t test:ajdebcgybcfurcubr789jdch89990
+      docker push 
 
-- name: Run new Docker container
-        run: |
-          docker run -d --name nodejs -p 3000:80 nodejsimage
-          echo "New container 'your-app-container' started."
-
+  - name: CD
+     run:|
+      docker stop
+      docker pull
+      docker run
