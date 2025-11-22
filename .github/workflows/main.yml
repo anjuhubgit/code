@@ -1,24 +1,12 @@
-name: Nodejs dockerize
-on:
+name: node js dockerization
+on: 
    push:
-     branches:
-       -main
+      branches: 
+      - main
+
+jobs: 
+ build-and-run:
+  runs-on: ubuntu-latest
+
   
-jobs:
-  build-and-run:
-     runs-on: ubuntu-latest
 
-     steps:
-     - name: Checkout code
-       uses: actions/checkout@v4
-
-     - name: CI
-        run:|
-        docker build -t test:ajdebcgybcfurcubr789jdch89990
-        docker push 
-
-     - name: CD
-        run:|
-        docker stop
-        docker pull
-        docker run
