@@ -7,19 +7,19 @@ on:
   
 jobs:
   build-and-run:
-    runs-on: ubuntu-latest
+     runs-on: ubuntu-latest
 
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v4
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v4
 
-  - name: CI
-     run:|
-      docker build -t test:ajdebcgybcfurcubr789jdch89990
-      docker push 
+     - name: CI
+        run:|
+        docker build -t test:ajdebcgybcfurcubr789jdch89990
+        docker push 
 
-  - name: CD
-     run:|
-      docker stop
-      docker pull
-      docker run
+     - name: CD
+        run:|
+        docker stop
+        docker pull
+        docker run
