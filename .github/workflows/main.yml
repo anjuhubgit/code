@@ -1,7 +1,7 @@
 name: Nodejs dockerize
 on:
-  push:
-    branches:
+   push:
+     branches:
        -main
   
 jobs:
