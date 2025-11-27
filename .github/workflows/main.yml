@@ -22,14 +22,16 @@ jobs:
     run: docker build -t test:latest .
 
   - name: Push Docker Image
-    run: |    docker tag test:latest anjumhiremath196@gmail/test:latest          
-		              docker push anjumhiremath196@gmail/test:latest
+    run: |
+	docker tag test:latest anjumhiremath196@gmail/test:latest  
+	docker push anjumhiremath196@gmail/test:latest
 
    - name: Deploy Container        
-        run: |          docker stop test || true          
-		               docker rm test || true          
-					   docker pull anjumhiremath196@gmail/test:latest          
-					   docker run -d --name test -p 8080:8080 anjumhiremath196@gmail/test:latest
+    run: |         
+		docker stop test || true          
+		docker rm test || true          
+		docker pull anjumhiremath196@gmail/test:latest          
+		docker run -d --name test -p 8080:8080 anjumhiremath196@gmail/test:latest
 					   
 
    
