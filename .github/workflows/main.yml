@@ -21,6 +21,11 @@ jobs:
   - name: Build Docker Image
     run: docker build -t test:latest .
 
+  - name: push docker Image
+    run: |
+     docker tag test:latest anjumhiremath196@gmail/test:latest  
+	    docker push anjumhiremath196@gmail/test:latest 
+
  
 					   
 
