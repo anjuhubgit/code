@@ -19,12 +19,12 @@ jobs:
      password: ${{ secrets.DOCKERHUB_TOKEN }}
 
   - name: Build Docker Image
-    run: docker build -t test:latest .
+    run: docker build -t mynodeimage .
     working-directory: ./cicd-react-application-main
 
   - name: push docker Image
     run: |
-     docker tag test:latest anjumhiremath/test:latest  
+     docker tag mynodeimage anjumhiremath/mynodeimage  
      docker push anjumhiremath/test:latest 
 
  
