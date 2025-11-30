@@ -24,10 +24,10 @@ jobs:
   - name: push docker Image
     run: |
      docker tag test:latest anjumhiremath196@gmail/test:latest  
-	    docker push anjumhiremath196@gmail/test:latest 
+     docker push anjumhiremath196@gmail/test:latest 
 
  
-					   
+                       
 
    
      
