@@ -24,7 +24,7 @@ jobs:
 
   - name: push docker Image
     run: |
-     docker tag mynodeimage anjuhubdocker/test:latest  
+     docker tag test:latest anjuhubdocker/test:latest  
      docker push anjuhubdocker/test:latest 
 
  
